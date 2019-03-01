@@ -18,7 +18,15 @@ namespace mRemoteNG.UI.Window
 		internal System.Windows.Forms.ToolStripMenuItem mMenSortAscending;
 		internal System.Windows.Forms.ToolStripMenuItem mMenAddConnection;
 		internal System.Windows.Forms.ToolStripMenuItem mMenAddFolder;
-		public System.Windows.Forms.TreeView tvConnections;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptions;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptionsOpenConnFile;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptionsSaveConnFile;
+        internal System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptionsShowHideMenu;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptionsOpenOptions;
+        internal System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        internal System.Windows.Forms.ToolStripMenuItem mMenOptionsExit;
+        public System.Windows.Forms.TreeView tvConnections;
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
@@ -36,6 +44,14 @@ namespace mRemoteNG.UI.Window
             this.mMenViewExpandAllFolders = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenViewCollapseAllFolders = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenSortAscending = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenOptionsOpenConnFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenOptionsSaveConnFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mMenOptionsShowHideMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenOptionsOpenOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mMenOptionsExit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.olvConnections)).BeginInit();
             this.pnlConnections.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
@@ -129,7 +145,8 @@ namespace mRemoteNG.UI.Window
             this.mMenAddConnection,
             this.mMenAddFolder,
             this.mMenView,
-            this.mMenSortAscending});
+            this.mMenSortAscending,
+            this.mMenOptions});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
             this.msMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -185,6 +202,71 @@ namespace mRemoteNG.UI.Window
             this.mMenSortAscending.Image = global::mRemoteNG.Resources.Sort_AZ;
             this.mMenSortAscending.Name = "mMenSortAscending";
             this.mMenSortAscending.Size = new System.Drawing.Size(28, 20);
+            //
+            // mMenOptions
+            // 
+            this.mMenOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mMenOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mMenOptionsOpenConnFile,
+            this.mMenOptionsSaveConnFile,
+            this.toolStripSeparator1,
+            this.mMenOptionsShowHideMenu,
+            this.mMenOptionsOpenOptions,
+            this.toolStripSeparator2,
+            this.mMenOptionsExit});
+            this.mMenOptions.Image = global::mRemoteNG.Resources.cog;
+            this.mMenOptions.Name = "mMenOptions";
+            this.mMenOptions.Size = new System.Drawing.Size(28, 20);
+            // 
+            // mMenOptionsOpenConnFile
+            // 
+            this.mMenOptionsOpenConnFile.Image = global::mRemoteNG.Resources.Connections_Load;
+            this.mMenOptionsOpenConnFile.Name = "mMenOptionsOpenConnFile";
+            this.mMenOptionsOpenConnFile.Size = new System.Drawing.Size(196, 22);
+            this.mMenOptionsOpenConnFile.Text = "Open Connection File...";
+            this.mMenOptionsOpenConnFile.Click += new System.EventHandler(this.mMenOptionsOpenConnFile_Click);
+            // 
+            // mMenOptionsSaveConnFile
+            // 
+            this.mMenOptionsSaveConnFile.Image = global::mRemoteNG.Resources.Connections_Save;
+            this.mMenOptionsSaveConnFile.Name = "mMenOptionsSaveConnFile";
+            this.mMenOptionsSaveConnFile.Size = new System.Drawing.Size(196, 22);
+            this.mMenOptionsSaveConnFile.Text = "Save Connection File";
+            this.mMenOptionsSaveConnFile.Click += new System.EventHandler(this.mMenOptionsSaveConnFile_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
+            // 
+            // mMenOptionsShowHideMenu
+            // 
+            this.mMenOptionsShowHideMenu.Image = global::mRemoteNG.Resources.application_side_tree;
+            this.mMenOptionsShowHideMenu.Name = "mMenOptionsShowHideMenu";
+            this.mMenOptionsShowHideMenu.Size = new System.Drawing.Size(196, 22);
+            this.mMenOptionsShowHideMenu.Text = "Show/Hide Main Menu";
+            this.mMenOptionsShowHideMenu.Click += new System.EventHandler(this.mMenOptionsShowHideMenu_Click);
+            // 
+            // mMenOptionsOpenOptions
+            // 
+            this.mMenOptionsOpenOptions.Image = global::mRemoteNG.Resources.Options;
+            this.mMenOptionsOpenOptions.Name = "mMenOptionsOpenOptions";
+            this.mMenOptionsOpenOptions.Size = new System.Drawing.Size(196, 22);
+            this.mMenOptionsOpenOptions.Text = "Options";
+            this.mMenOptionsOpenOptions.Click += new System.EventHandler(this.mMenOptionsOpenOptions_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            // 
+            // mMenOptionsExit
+            // 
+            this.mMenOptionsExit.Image = global::mRemoteNG.Resources.Quit;
+            this.mMenOptionsExit.Name = "mMenOptionsExit";
+            this.mMenOptionsExit.Size = new System.Drawing.Size(196, 22);
+            this.mMenOptionsExit.Text = "Exit";
+            this.mMenOptionsExit.Click += new System.EventHandler(this.mMenOptionsExit_Click);
             // 
             // ConnectionTreeWindow
             // 

@@ -81,6 +81,12 @@ namespace mRemoteNG.UI.Window
             mMenViewExpandAllFolders.Text = Language.strExpandAllFolders;
             mMenViewCollapseAllFolders.Text = Language.strCollapseAllFolders;
             mMenSortAscending.ToolTipText = Language.strSortAsc;
+            mMenOptions.Text = Language.strMenuOptions;
+            mMenOptionsOpenConnFile.Text = Language.strMenuOpenConnectionFile;
+            mMenOptionsSaveConnFile.Text = Language.strMenuSaveConnectionFile;
+            mMenOptionsShowHideMenu.Text = Language.strShowHideMainMenu;
+            mMenOptionsOpenOptions.Text = Language.strMenuOptions;
+            mMenOptionsExit.Text = Language.strMenuExit;
 
             txtSearch.Text = Language.strSearchPrompt;
         }
@@ -190,6 +196,44 @@ namespace mRemoteNG.UI.Window
 		{
             olvConnections.AddFolder();
 		}
+        private void mMenOptionsOpenConnFile_Click(object sender, EventArgs e)
+        {
+            if (Runtime.ConnectionsService.IsConnectionsFileLoaded)
+            {
+                var msgBoxResult = MessageBox.Show(Language.strSaveConnectionsFileBeforeOpeningAnother,
+                                                   Language.strSave, MessageBoxButtons.YesNoCancel);
+                // ReSharper disable once SwitchStatementMissingSomeCases
+                switch (msgBoxResult)
+                {
+                    case DialogResult.Yes:
+                        Runtime.ConnectionsService.SaveConnections();
+                        break;
+                    case DialogResult.Cancel:
+                        return;
+                }
+            }
+            Runtime.LoadConnections(true);
+        }
+
+        private void mMenOptionsSaveConnFile_Click(object sender, EventArgs e)
+        {
+            Runtime.ConnectionsService.SaveConnections();
+        }
+
+        private void mMenOptionsShowHideMenu_Click(object sender, EventArgs e)
+        {
+            Runtime.MainFormMenuVisible = !Runtime.MainFormMenuVisible;
+        }
+
+        private void mMenOptionsOpenOptions_Click(object sender, EventArgs e)
+        {
+            Windows.Show(WindowType.Options);
+        }
+
+        private void mMenOptionsExit_Click(object sender, EventArgs e)
+        {
+            Shutdown.Quit();
+        }
         #endregion
 
         #region Search

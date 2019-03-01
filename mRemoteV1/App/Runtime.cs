@@ -180,5 +180,19 @@ namespace mRemoteNG.App
             }
         }
         #endregion
+
+        #region Main Form Menu Visible
+        public static bool MainFormMenuVisible
+        {
+            get
+            {
+                return FrmMain.Default.msMain.Visible;
+            }
+            set
+            {
+                FrmMain.Default.msMain.Visible = value;
+            }
+        }
+        #endregion
     }
 }
